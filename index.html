@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Scrolling Iframes</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            border: none;
+            width: 350px;
+            height: 50px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const iframeData = [
+            ["direct-link-2810591", "DirectLink_1", 27072963, "https://www.profitableratecpm.com/w4jm9rj0?key=91cce766f3942d2a8883d11613040bbd"],
+            ["direct-link-2810591", "DirectLink_2", 27072966, "https://www.profitableratecpm.com/rdbavgrm?key=a662e8f196654ce3b22895c16f887140"],
+            ["direct-link-2810591", "DirectLink_3", 27072971, "https://www.profitableratecpm.com/f1ixyhkr67?key=17476c762fc0c73c4b5aa771e0db2718"],
+            ["direct-link-2810591", "DirectLink_4", 27072978, "https://www.profitableratecpm.com/kmk45uzw?key=fd3559537bfe7857aeac22c4c18b8559"],
+            ["direct-link-2810591", "DirectLink_5", 27072984, "https://www.profitableratecpm.com/idvb353f?key=435919148d1e2f419dbd0ff44658b6d5"],
+            ["direct-link-2810591", "DirectLink_6", 27072996, "https://www.profitableratecpm.com/h811sbi5f9?key=29f8e7b83a10fa93cdca0786cf568ca9"],
+            ["direct-link-2810591", "DirectLink_7", 27073003, "https://www.profitableratecpm.com/kgrb5i8qxs?key=693ed5cc12645e265a8d66165e6f07e9"],
+            ["direct-link-2810591", "DirectLink_8", 27073014, "https://www.profitableratecpm.com/autukfwpc?key=1b256861d35b13e7f39434a8efb2f432"],
+            ["direct-link-2810591", "DirectLink_9", 27073025, "https://www.profitableratecpm.com/nuwy9xru0s?key=32261adb62a3fc27110d1f91f8fbcce8"],
+            ["direct-link-2810591", "DirectLink_10", 27073034, "https://www.profitableratecpm.com/y4giiikwi?key=7a3a38b634164c1b5815518d67443bf6"]
+        ];
+
+        const container = document.body;
+
+        iframeData.forEach(([zone, placement, id, link]) => {
+            const iframe = document.createElement('iframe');
+            iframe.src = link;
+            iframe.title = placement;
+            iframe.id = id;
+            container.appendChild(iframe);
+
+            let scrollPosition = 0;
+            const iframeHeight = 50;
+            const scrollSpeed = 100;
+
+            setInterval(() => {
+                scrollPosition += 1;
+                if (scrollPosition >= iframeHeight) {
+                    scrollPosition = 0;
+                }
+                iframe.contentWindow.scrollTo(0, scrollPosition);
+            }, scrollSpeed);
+        });
+    </script>
+</body>
+</html>
